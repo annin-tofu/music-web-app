@@ -17,6 +17,8 @@ const AUTH_URL =
 export default function Login() {
   return (
     <Container
+    // !!BOOTSTRAP notation!! the d-flex class is used to create a simple flexbox container. 
+    // Horizontal and vertical elements - d-flex supports creating elements both horizontally (. flex-row) and vertically (. flex-column). Col only support horizontally.
       className="d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >
