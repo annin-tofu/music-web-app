@@ -1,24 +1,26 @@
 //$ npm init -y : to initialize package.json.file
 
 // npm i nodemon --save-dev : to make it dev dependency
-
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const lyricsFinder = require("lyrics-finder");
 
 const SpotifyWebApi = require("spotify-web-api-node");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "http://localhost:3000",
-    clientId: "88e9ad173305490ba60849a2ecf9d0d8",
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
     // clientSecret should later be moved to env.file due to security reasons
-    clientSecret: "661aab9176b7496088f374efb10795ff",
+    clientSecret: process.env.CLIENT_SECRET,
     // https://github.com/thelinmichael/spotify-web-api-node,
     refreshToken,
   });
@@ -43,10 +45,10 @@ app.post("/refresh", (req, res) => {
 app.post("/login", (req, res) => {
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
-    redirectUri: "http://localhost:3000",
-    clientId: "88e9ad173305490ba60849a2ecf9d0d8",
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
     // clientSecret should later be moved to env.file due to security reasons
-    clientSecret: "661aab9176b7496088f374efb10795ff",
+    clientSecret: process.env.CLIENT_SECRET,
   });
 
   spotifyApi
@@ -63,6 +65,14 @@ app.post("/login", (req, res) => {
       console.log(err);
       res.sendStatus(400);
     });
+});
+
+//lyrics
+app.get("/lyrics", async (req, res) => {
+  const lyrics =
+    (await lyricsFinder(req.query.artist, req.query.track)) ||
+    "No Lyrics Found";
+  res.json({ lyrics });
 });
 
 app.listen(3001);
