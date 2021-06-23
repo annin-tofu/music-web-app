@@ -14,7 +14,7 @@ export default function useAuth(code) {
       .then((res) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
-        setExpiresIn(60);
+        setExpiresIn(res.data.expiresIn);
         //window.history.pushState line: push root url. deletes the random numbers from the end of code
         window.history.pushState({}, null, "/");
       })
@@ -36,7 +36,7 @@ export default function useAuth(code) {
         .then((res) => {
           setAccessToken(res.data.accessToken);
           // setRefreshToken(res.data.refreshToken);   {/* these lines are commented out since, to refresh the token, we only needs AccessToken and ExpiresIn variables*/}
-          setExpiresIn(61);
+          setExpiresIn(res.data.expiresIn);
           // //window.history.pushState line: push root url. deletes the random numbers from the end of code
           // window.history.pushState({}, null, "/");
         })

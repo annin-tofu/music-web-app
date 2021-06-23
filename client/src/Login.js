@@ -12,13 +12,13 @@ import { Container } from "react-bootstrap";
 // user-read-playback-state: determine if the song is playing or not
 // user-modify-playback-state: allows to modify which song spotify is playing
 const AUTH_URL =
-  "https://accounts.spotify.com/authorize?client_id=216d702b08734b7eb253704372f49d9e&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
+  "https://accounts.spotify.com/authorize?client_id=88e9ad173305490ba60849a2ecf9d0d8&response_type=code&redirect_uri=http://localhost:3000&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
 
 export default function Login() {
   return (
     <Container
-    // !!BOOTSTRAP notation!! the d-flex class is used to create a simple flexbox container. 
-    // Horizontal and vertical elements - d-flex supports creating elements both horizontally (. flex-row) and vertically (. flex-column). Col only support horizontally.
+      // !!BOOTSTRAP notation!! the d-flex class is used to create a simple flexbox container.
+      // Horizontal and vertical elements - d-flex supports creating elements both horizontally (. flex-row) and vertically (. flex-column). Col only support horizontally.
       className="d-flex justify-content-center align-items-center"
       style={{ minHeight: "100vh" }}
     >

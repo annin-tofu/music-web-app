@@ -14,12 +14,11 @@ app.use(bodyParser.json());
 
 app.post("/refresh", (req, res) => {
   const refreshToken = req.body.refreshToken;
-  console.log("hi");
   const spotifyApi = new SpotifyWebApi({
     redirectUri: "http://localhost:3000",
-    clientId: "216d702b08734b7eb253704372f49d9e",
+    clientId: "88e9ad173305490ba60849a2ecf9d0d8",
     // clientSecret should later be moved to env.file due to security reasons
-    clientSecret: "9bcbd1957c564f0a83c3611326cae26d",
+    clientSecret: "661aab9176b7496088f374efb10795ff",
     // https://github.com/thelinmichael/spotify-web-api-node,
     refreshToken,
   });
@@ -45,9 +44,9 @@ app.post("/login", (req, res) => {
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
     redirectUri: "http://localhost:3000",
-    clientId: "216d702b08734b7eb253704372f49d9e",
+    clientId: "88e9ad173305490ba60849a2ecf9d0d8",
     // clientSecret should later be moved to env.file due to security reasons
-    clientSecret: "9bcbd1957c564f0a83c3611326cae26d",
+    clientSecret: "661aab9176b7496088f374efb10795ff",
   });
 
   spotifyApi
