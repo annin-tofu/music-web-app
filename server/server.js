@@ -1,6 +1,6 @@
 //$ npm init -y : to initialize package.json.file
 
-// npm i nodemon --save-dev : to make it dev dependency
+// npm i nodemon --save-dev : to make it dev dependent
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
