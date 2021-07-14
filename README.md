@@ -1,7 +1,7 @@
-# to start app
+# to start this app
 
 since this project has Client and Server folders separately,
-
+run
 $ cd server
 $ npm run
 to start up Server side(localhost://3000)
@@ -12,4 +12,4 @@ $ npm start
 
 to start up Client side(localhost://3001)
 
-Then the whole projects works
+Then the whole project starts up!!!!
